@@ -76,7 +76,7 @@
                                 aria-expanded="false">
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="d-flex">
-                                        <i class="ti ti-file-text"></i>
+                                        <i class="ti ti-"></i>
                                     </span>
                                     <span class="hide-menu">Kategori</span>
                                 </div>
