@@ -62,7 +62,7 @@
                 <div class="col-lg-8 mx-auto">
                     <div class="card shadow-sm">
                         <div class="card-header bg-success text-white">
-                            <h4 class="mb-0">User Profile</h4>
+                            <h4 class="mb-0 text-white">User Profile</h4>
                         </div>
                         <div class="card-body">
                             <form action="update_profile.php" method="POST" enctype="multipart/form-data">
@@ -73,15 +73,24 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <label for="fullName" class="form-label">Nama Lengkap</label>
                                     <input type="text" class="form-control" id="fullName" name="fullName" value="John Doe" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="bio" class="form-label">Bio</label>
-                                    <textarea class="form-control" id="bio" name="bio" rows="4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" value="John Doe" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan kata sandi" aria-describedby="togglePassword" required>
+                                        <button type="button" class="input-group-text bg-success text-white border-success cursor-pointer" id="togglePassword" aria-label="Toggle password visibility">
+                                            <i class="ti ti-eye"></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    <button type="submit" class="btn btn-success">Save Changes</button>
                                 </div>
                             </form>
                         </div>
@@ -91,4 +100,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#password');
+        const icon = togglePassword.querySelector('i');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            icon.classList.toggle('ti-eye');
+            icon.classList.toggle('ti-eye-off');
+            passwordInput.focus(); // Maintain focus on input after toggle
+        });
+    });
+</script>
+
 <?php include 'footer.php'; ?>
